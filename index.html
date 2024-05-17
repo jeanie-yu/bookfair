@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Link to HTML2Canvas library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <title>Taipei Art Book Fair</title>
+    <link
+    rel="icon"
+    href=
+"element-06.png"
+    type="image/x-icon"
+/>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .poster-container {
+            display: flex;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .poster-container img {
+            height: 100vh;
+            margin-left: 13vw;
+        }
+
+        #box-container {
+            display: flex;
+            position: fixed;
+            height: 50vh;
+            margin: 0;
+            margin-left: 52vw;
+            margin-top: 42.5vh;
+            z-index: 9;
+        }
+
+        .box-containerelement {
+            position: absolute;
+            z-index: 99;
+            display: flex;
+            position: fixed;
+            margin: 0;
+        }
+
+        .box-containerelement img {
+            width: 3vw;
+            cursor: move;
+            margin: 0;
+        }
+
+        #btnSave {
+            background-color: rgb(255, 0, 0);
+            color: white;
+            width: 5.5vw;
+            height: 2.5vw;
+            border-radius: 0%;
+            position: fixed;
+            margin-top: 92vh;
+            margin-left: 5vw;
+            z-index: 999;
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .capture {
+            /* Adjust the dimensions and position of the capture area */
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            z-index: 1000;
+            top: 10vh;
+            left: 60vw;
+            pointer-events: none; /* Ensure that the capture area doesn't interfere with mouse events */
+        }
+    </style>
+</head>
+
+<body>
+    <div style="margin-left:100px;">
+<div class="capture"></div>
+</div>
+
+    <div class="poster-container">
+        <img src="taipei-art-bookfair-series-04.jpg">
+    </div>
+
+    <div>
+        <div id="box-container">
+            <img src="taipei-art-bookfair series-website.png">
+        </div>
+
+        <!-- books -->
+        <div class="box-containerelement" id="element48">
+            <img src="element-18.png" style="width:1.9vw;margin-left:82.4vw;margin-top:58.5vh;">
+        </div>
+        <div class="box-containerelement" id="element44">
+            <img src="element-18.png" style="width:1.9vw;margin-left:82.4vw;margin-top:58.5vh;">
+        </div>
+        <div class="box-containerelement" id="element40">
+            <img src="element-18.png" style="width:1.9vw;margin-left:82.4vw;margin-top:58.5vh;">
+        </div>
+        <div class="box-containerelement" id="element47">
+            <img src="element-17.png" style="width:1.9vw;margin-left:79.4vw;margin-top:62.1vh;">
+        </div>
+        <div class="box-containerelement" id="element43">
+            <img src="element-17.png" style="width:1.9vw;margin-left:79.4vw;margin-top:62.1vh;">
+        </div>
+        <div class="box-containerelement" id="element39">
+            <img src="element-17.png" style="width:1.9vw;margin-left:79.4vw;margin-top:62.1vh;">
+        </div>
+        <div class="box-containerelement" id="element46">
+            <img src="element-16.png" style="width:1.9vw;margin-left:76.4vw;margin-top:64.7vh;">
+        </div>
+        <div class="box-containerelement" id="element42">
+            <img src="element-16.png" style="width:1.9vw;margin-left:76.4vw;margin-top:64.7vh;">
+        </div>
+        <div class="box-containerelement" id="element38">
+            <img src="element-16.png" style="width:1.9vw;margin-left:76.4vw;margin-top:64.7vh;">
+        </div>
+        <div class="box-containerelement" id="element45">
+            <img src="element-15.png" style="width:1.9vw;margin-left:73.4vw;margin-top:62vh;">
+        </div>
+        <div class="box-containerelement" id="element41">
+            <img src="element-15.png" style="width:1.9vw;margin-left:73.4vw;margin-top:62vh;">
+        </div>
+        <div class="box-containerelement" id="element37">
+            <img src="element-15.png" style="width:1.9vw;margin-left:73.4vw;margin-top:62vh;">
+        </div>
+
+        <!-- 6 stars -->
+        <div class="box-containerelement" id="element36">
+            <img src="element-14.png" style="margin-left:69.5vw;margin-top:79.8vh;">
+        </div>
+        <div class="box-containerelement" id="element32">
+            <img src="element-14.png" style="margin-left:69.5vw;margin-top:79.8vh;">
+        </div>
+        <div class="box-containerelement" id="element28">
+            <img src="element-14.png" style="margin-left:69.5vw;margin-top:79.8vh;">
+        </div>
+        <div class="box-containerelement" id="element35">
+            <img src="element-13.png" style="margin-left:65vw;margin-top:79.8vh;">
+        </div>
+        <div class="box-containerelement" id="element31">
+            <img src="element-13.png" style="margin-left:65vw;margin-top:79.8vh;">
+        </div>
+        <div class="box-containerelement" id="element27">
+            <img src="element-13.png" style="margin-left:65vw;margin-top:79.8vh;">
+        </div>
+
+
+        <div class="box-containerelement" id="element24">
+            <img src="element-12.png" style="margin-left:69.5vw;margin-top:69.5vh;">
+        </div>
+        <div class="box-containerelement" id="element20">
+            <img src="element-12.png" style="margin-left:69.5vw;margin-top:69.5vh;">
+        </div>
+        <div class="box-containerelement" id="element16">
+            <img src="element-12.png" style="margin-left:69.5vw;margin-top:69.5vh;">
+        </div>
+        <div class="box-containerelement" id="element23">
+            <img src="element-11.png" style="margin-left:65vw;margin-top:69.5vh;">
+        </div>
+        <div class="box-containerelement" id="element19">
+            <img src="element-11.png" style="margin-left:65vw;margin-top:69.5vh;">
+        </div>
+        <div class="box-containerelement" id="element15">
+            <img src="element-11.png" style="margin-left:65vw;margin-top:69.5vh;">
+        </div>
+
+        <div class="box-containerelement" id="element12">
+            <img src="element-06.png" style="width:1.5vw;margin-left:70.2vw;margin-top:61vh;">
+        </div>
+        <div class="box-containerelement" id="element8">
+            <img src="element-06.png" style="width:1.5vw;margin-left:70.2vw;margin-top:61vh;">
+        </div>
+        <div class="box-containerelement" id="element4">
+            <img src="element-06.png" style="width:1.5vw;margin-left:70.2vw;margin-top:61vh;">
+        </div>
+        <div class="box-containerelement" id="element11">
+            <img src="element-05.png" style="width:1.5vw;margin-left:65.7vw;margin-top:61vh;">
+        </div>
+        <div class="box-containerelement" id="element7">
+            <img src="element-05.png" style="width:1.5vw;margin-left:65.7vw;margin-top:61vh;">
+        </div>
+        <div class="box-containerelement" id="element3">
+            <img src="element-05.png" style="width:1.5vw;margin-left:65.7vw;margin-top:61vh;">
+        </div>
+
+        <!-- 6 squares -->
+        <div class="box-containerelement" id="element34">
+            <img src="element-09.png" style="margin-left:60.5vw;margin-top:80.8vh;">
+        </div>
+        <div class="box-containerelement" id="element30">
+            <img src="element-09.png" style="margin-left:60.5vw;margin-top:80.8vh;">
+        </div>
+        <div class="box-containerelement" id="element26">
+            <img src="element-09.png" style="margin-left:60.5vw;margin-top:80.8vh;">
+        </div>
+        <div class="box-containerelement" id="element33">
+            <img src="element-10.png" style="margin-left:56vw;margin-top:80.8vh;">
+        </div>
+        <div class="box-containerelement" id="element29">
+            <img src="element-10.png" style="margin-left:56vw;margin-top:80.8vh;">
+        </div>
+        <div class="box-containerelement" id="element25">
+            <img src="element-10.png" style="margin-left:56vw;margin-top:80.8vh;">
+        </div>
+
+        <div class="box-containerelement" id="element22">
+            <img src="element-07.png" style="margin-left:60.5vw;margin-top:70.4vh;">
+        </div>
+        <div class="box-containerelement" id="element18">
+            <img src="element-07.png" style="margin-left:60.5vw;margin-top:70.4vh;">
+        </div>
+        <div class="box-containerelement" id="element14">
+            <img src="element-07.png" style="margin-left:60.5vw;margin-top:70.4vh;">
+        </div>
+        <div class="box-containerelement" id="element21">
+            <img src="element-08.png" style="margin-left:56vw;margin-top:70.4vh;">
+        </div>
+        <div class="box-containerelement" id="element17">
+            <img src="element-08.png" style="margin-left:56vw;margin-top:70.4vh;">
+        </div>
+        <div class="box-containerelement" id="element13">
+            <img src="element-08.png" style="margin-left:56vw;margin-top:70.4vh;">
+        </div>
+
+        <div class="box-containerelement" id="element10">
+            <img src="element-04.png" style="margin-left:60.5vw;margin-top:60vh;">
+        </div>
+        <div class="box-containerelement" id="element6">
+            <img src="element-04.png" style="margin-left:60.5vw;margin-top:60vh;">
+        </div>
+        <div class="box-containerelement" id="element2">
+            <img src="element-04.png" style="margin-left:60.5vw;margin-top:60vh;">
+        </div>
+        <div class="box-containerelement" id="element9">
+            <img src="element-03.png" style="margin-left:56vw;margin-top:60vh;">
+        </div>
+        <div class="box-containerelement" id="element5">
+            <img src="element-03.png" style="margin-left:56vw;margin-top:60vh;">
+        </div>
+        <div class="box-containerelement" id="element1">
+            <img src="element-03.png" style="margin-left:56vw;margin-top:60vh;">
+        </div>
+        
+
+        <!-- <div id="btnSave">
+            <p> Save Image</p>
+        </div> -->
+
+
+
+    </div>
+
+    <script>
+        // Function to make elements draggable
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            var isBoxContainer = elmnt.id === "box-container";
+    
+            elmnt.onmousedown = dragMouseDown;
+    
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // Check if the element is box-container
+                if (isBoxContainer) {
+                    return;
+                }
+                // get the mouse cursor position at startup:
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                // call a function whenever the cursor moves:
+                document.onmousemove = elementDrag;
+            }
+    
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // calculate the new cursor position:
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                // set the element's new position:
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+    
+            function closeDragElement() {
+                // stop moving when mouse button is released:
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+        }
+    
+        // Apply drag functionality to each box-containerelement
+        for (let i = 1; i <= 48; i++) {
+            dragElement(document.getElementById("element" + i));
+        }
+    
+       // Function to capture the specific area when clicking btnSave
+       function captureArea() {
+        // Set the z-index of the capture area to the highest
+        $(".capture").css("z-index", "1000");
+
+        // Hide the save button temporarily to prevent it from being captured
+        $("#btnSave").hide();
+
+        // Capture only the specific area
+        html2canvas(document.body, {
+            onrendered: function(canvas) {
+                // Reset the z-index of the capture area
+                $(".capture").css("z-index", "0");
+
+                // Show the save button again
+                $("#btnSave").show();
+
+                // Save the canvas as an image
+                canvas.toBlob(function(blob) {
+                    saveAs(blob, "Taipei-Art-Book-Fair.png"); 
+                });
+            },
+            // Set the capture area to be the only area captured
+            x: $(".capture").offset().left,
+            y: $(".capture").offset().top,
+            width: $(".capture").width(),
+            height: $(".capture").height(),
+            // Exclude the capture area from the rendering
+            exclude: $(".capture")[0]
+        });
+    }
+
+    // Save button click event
+    $(function() { 
+        $("#btnSave").click(function() { 
+            captureArea();
+        });
+    });
+    </script>
+    
+</body>
+
+</html>
